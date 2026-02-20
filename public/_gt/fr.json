@@ -1,20 +1,10 @@
 {
   "00ad8aeed0a6c461": "Annuler",
-  "0219fb65956f25ce": "Que vendez-vous ?",
-  "0a0dc2ed6ec0b1d4": "Détails de l’annonce",
-  "0ed24424158bf145": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
-    },
-    " résultat"
-  ],
   "10457320f9781e3b": "Mes annonces",
-  "136e3d48788bdbd1": "Une place de marché peer-to-peer qui illustre l’internationalisation avec General Translation. Parcourez les annonces, publiez des offres et échangez avec les vendeurs.",
+  "136e3d48788bdbd1": "Une place de marché entre particuliers qui illustre les capacités d’internationalisation de General Translation. Parcourez les annonces, publiez des objets et contactez les vendeurs.",
   "14dd1c1c439ba04d": [
     {
-      "c": "Ceci est un exemple d'application développée avec General Translation pour illustrer l'internationalisation. Il ne s'agit pas d'une vraie place de marché ou d'un service réel.",
+      "c": "Il s'agit d'un exemple d'application créée avec General Translation pour illustrer l'internationalisation. Ce n'est pas une vraie place de marché ou un vrai service.",
       "i": 1,
       "t": "p"
     },
@@ -60,11 +50,8 @@
       "t": "div"
     }
   ],
-  "1605a3b65a461154": "Sélectionner une sous-catégorie",
   "17e501694d9ac074": "Note",
-  "1daed81aed823529": "Sélectionner une catégorie",
-  "217c1e23ed1ab892": "État et prix",
-  "23584307c2d62976": "Plage de prix",
+  "23584307c2d62976": "Fourchette de prix",
   "2c1d1b1a9847c6b4": "Prix : du plus élevé au plus bas",
   "2ecf88ef9e8e4259": "Accueil",
   "2f39da125f98bb6c": "Maximum",
@@ -81,7 +68,7 @@
     "i": 1,
     "t": "Branch"
   },
-  "3c61ed23a824acea": "Rechercher des annonces…",
+  "3c61ed23a824acea": "Rechercher des annonces...",
   "444220059990695a": [
     {
       "c": {
@@ -104,64 +91,54 @@
       "t": "p"
     }
   ],
-  "45ab47c86055c200": "Ajoutez au moins une photo",
-  "4accfdd043ab901e": [
-    {
-      "c": {
-        "i": 2,
-        "t": "path"
-      },
-      "i": 1,
-      "t": "svg"
-    },
-    {
-      "c": "Glissez-déposez vos photos ici",
-      "i": 3,
-      "t": "p"
-    },
-    {
-      "c": "ou cliquez pour parcourir (jusqu'à 8 photos)",
-      "i": 4,
-      "t": "p"
-    }
-  ],
-  "5e7a1040d427b2a6": "Cet article est gratuit",
-  "62c152067ed2c7db": [
-    {
-      "c": {
-        "c": {
-          "i": 3,
-          "t": "path"
+  "4d68c060e1ebebb3": "Afficher les filtres",
+  "686611acf00d7d17": "Date d’enregistrement",
+  "6c5c64c3ca905c8c": {
+    "d": {
+      "b": {
+        "many": {
+          "c": {
+            "c": "Entrées",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
         },
-        "i": 2,
-        "t": "svg"
+        "other": {
+          "c": {
+            "c": "Entrées",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
+        },
+        "plural": {
+          "c": {
+            "c": "Entrées",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
+        },
+        "singular": {
+          "c": {
+            "c": "Annonce",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
+        }
       },
-      "i": 1,
-      "t": "div"
-    },
-    {
-      "c": "Annonce publiée",
-      "i": 4,
-      "t": "h2"
-    },
-    {
-      "c": "Votre annonce est maintenant en ligne et visible par les acheteurs dans votre région.",
-      "i": 5,
       "t": "p"
-    }
-  ],
-  "659a662bb73db8a0": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
     },
-    " annonce"
-  ],
-  "686611acf00d7d17": "Date de sauvegarde",
+    "i": 1,
+    "t": "Plural"
+  },
   "6cc3a43639370dff": "Parcourir",
-  "6e38d6ea39dbfb08": "Annonces",
-  "6eadfe6160c42719": "Sous-catégorie",
   "6f7428ac068ff7ad": "État",
   "703c7cb3584bd86a": "Catégories",
   "71bacf23e4e392c4": {
@@ -169,21 +146,176 @@
     "i": 1,
     "t": "h3"
   },
-  "7482b296e4f76e30": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
+  "73970026e141e6aa": {
+    "d": {
+      "b": {
+        "many": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " annonces"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "other": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " annonces"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "plural": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " annonces"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "singular": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " annonce"
+          ],
+          "i": 2,
+          "t": "C2"
+        }
+      },
+      "t": "p"
     },
-    " résultats"
-  ],
+    "i": 1,
+    "t": "Plural"
+  },
   "762fcce45b65eea9": "Enregistrer",
-  "78079593acbe3f28": "Message pour le vendeur",
+  "78079593acbe3f28": "Envoyer un message au vendeur",
+  "784adb54822ecba5": {
+    "d": {
+      "b": {
+        "active": "Actif",
+        "all": "Tous",
+        "sold": "Vendu"
+      },
+      "t": "b"
+    },
+    "i": 1,
+    "t": "Branch"
+  },
+  "79a70b8254006e2f": [
+    {
+      "c": [
+        {
+          "c": {
+            "i": 3,
+            "k": "_gt_value_3",
+            "v": "v"
+          },
+          "i": 2,
+          "t": "span"
+        },
+        {
+          "c": {
+            "i": 5,
+            "k": "_gt_date_5",
+            "v": "d"
+          },
+          "i": 4,
+          "t": "span"
+        }
+      ],
+      "i": 1,
+      "t": "div"
+    },
+    {
+      "c": [
+        {
+          "i": 7,
+          "k": "_gt_n_7",
+          "v": "n"
+        },
+        " vues"
+      ],
+      "i": 6,
+      "t": "div"
+    }
+  ],
   "7f8cb8174c6d288f": "Suivant",
+  "82036d32c1c02953": {
+    "d": {
+      "b": {
+        "many": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " résultats"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "other": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " résultats"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "plural": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " résultats"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "singular": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " résultat"
+          ],
+          "i": 2,
+          "t": "C2"
+        }
+      },
+      "t": "p"
+    },
+    "i": 1,
+    "t": "Plural"
+  },
   "9037a9b57b84318e": "Parcourir par catégorie",
   "92b59072830cd6b6": "Toutes les catégories",
   "944d566de854b8c9": "Annonces similaires",
-  "954dcb9f2d1dee8c": "Publier une annonce",
   "95f94ccf634012a0": "Minimum",
   "9b0e07b66c149219": {
     "d": {
@@ -222,7 +354,6 @@
     "i": 1,
     "t": "p"
   },
-  "a169441aa8fa72ac": "Vérifiez votre annonce",
   "a45e6b229e290813": [
     {
       "c": "Aucune annonce trouvée",
@@ -235,14 +366,6 @@
       "t": "p"
     }
   ],
-  "a6b12d98391fbfc8": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
-    },
-    " annonces"
-  ],
   "ab47f58386924b4f": "Précédent",
   "acea78e592d3fc6f": {
     "c": "Aucun élément dans cet onglet",
@@ -250,21 +373,55 @@
     "t": "p"
   },
   "b02c4aa716524e41": "Prix : du plus bas au plus élevé",
-  "b15e3993e3725072": "Bonjour, est-ce toujours disponible ?",
-  "b6c98291dc1dabf7": "Le titre est obligatoire",
+  "b15e3993e3725072": "Bonjour, est-il toujours disponible ?",
   "bb081b4501ebd5a7": "Envoyer",
-  "bcc4a77f9b07b352": "Annonces sauvegardées",
-  "bcc9785b2dee50a0": "Marketplace | Traduction générique",
-  "bfd168c90558f93e": "Liste",
+  "bcc4a77f9b07b352": "Annonces enregistrées",
+  "bcc9785b2dee50a0": "Place de marché | General Translation",
+  "c09f43cb60484df5": {
+    "c": [
+      {
+        "c": {
+          "i": 3,
+          "k": "_gt_value_3",
+          "v": "v"
+        },
+        "i": 2,
+        "t": "p"
+      },
+      {
+        "c": [
+          "Publié le ",
+          {
+            "i": 5,
+            "k": "_gt_date_5",
+            "v": "d"
+          }
+        ],
+        "i": 4,
+        "t": "p"
+      },
+      {
+        "c": [
+          {
+            "i": 7,
+            "k": "_gt_n_7",
+            "v": "n"
+          },
+          " vues"
+        ],
+        "i": 6,
+        "t": "p"
+      }
+    ],
+    "i": 1,
+    "t": "div"
+  },
   "c0d3dd0975eb2f22": "Description",
-  "c3251b05060bea63": "Les plus récentes d’abord",
+  "c3251b05060bea63": "Les plus récents",
   "c3e693ca4b2c5b30": "Marquer comme vendu",
-  "c3ea24ac809a5ed5": "Titre",
-  "c6fa2905d56a750c": "Favoris",
+  "c6fa2905d56a750c": "Annonces enregistrées",
   "c7aa0e169164a191": "Marketplace",
-  "c84da0ed9b0cae55": "Sélectionner une catégorie",
   "ca10635fd5effe23": "Négociable",
-  "caaa6947c0e60ec5": "Ajouter des photos",
   "cb4c21ec9c5889a9": {
     "c": [
       {
@@ -286,10 +443,7 @@
     "i": 1,
     "t": "div"
   },
-  "d2f7cfe046cec410": "Prix (USD)",
-  "d303be54a588b078": "Prix négociable",
   "d4ec75de5686061a": "Les plus consultés",
-  "d894f6cb29f7a3ea": "Retour",
   "da49b8271b9dffa0": "Supprimer",
   "e44870bff2865e77": "Catégorie",
   "e48339936a4dd482": [
@@ -312,7 +466,24 @@
       "t": "p"
     }
   ],
-  "f344446f3e550d2c": "Sans titre",
-  "fdc1e0ccadda9657": "Publier l’annonce",
-  "fe207db80d78a055": "Décrivez votre article en détail…"
+  "e4b60ad4b18cf236": "Masquer les filtres",
+  "f6a348a5b59e9d92": [
+    {
+      "c": "Contacter le vendeur",
+      "i": 1,
+      "t": "h3"
+    },
+    {
+      "c": [
+        "Envoyer un message à ",
+        {
+          "i": 3,
+          "k": "_gt_value_3",
+          "v": "v"
+        }
+      ],
+      "i": 2,
+      "t": "p"
+    }
+  ]
 }

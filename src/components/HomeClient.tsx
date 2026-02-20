@@ -1,26 +1,20 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { T, Plural, Num } from "gt-next";
+import { T, Plural, Num, Branch } from "gt-next";
 import { useGT } from "gt-next/client";
 import ListingCard from "@/components/ListingCard";
 import { listings, Listing, Condition } from "@/data/listings";
 import { categories } from "@/data/categories";
 
 const CONDITIONS: Condition[] = ["new", "likeNew", "good", "fair"];
-const CONDITION_LABELS: Record<Condition, string> = {
-  new: "New",
-  likeNew: "Like New",
-  good: "Good",
-  fair: "Fair",
-};
 const SORT_OPTIONS = ["newest", "priceLow", "priceHigh", "mostViewed"] as const;
 type SortOption = (typeof SORT_OPTIONS)[number];
 
 const PAGE_SIZE = 9;
 
 export default function HomeClient() {
-  const t = useGT();
+  const gt = useGT();
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
   const [conditions, setConditions] = useState<Set<Condition>>(new Set());
@@ -107,7 +101,7 @@ export default function HomeClient() {
               onChange={(e) => handleSearch(e.target.value)}
               onFocus={() => search.length > 1 && setShowSuggestions(true)}
               onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-              placeholder={t("Search listings...")}
+              placeholder={gt("Search listings...")}
               className="w-full px-4 py-3 rounded-lg text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             {showSuggestions && suggestions.length > 0 && (
@@ -131,27 +125,29 @@ export default function HomeClient() {
         {/* Controls bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <p className="text-sm text-neutral-500">
-            <Plural n={filtered.length}
-              singular={<T><Num>{filtered.length}</Num> result</T>}
-              plural={<T><Num>{filtered.length}</Num> results</T>}
-            />
+            <T>
+              <Plural n={filtered.length}
+                singular={<><Num>{filtered.length}</Num> result</>}
+                plural={<><Num>{filtered.length}</Num> results</>}
+              />
+            </T>
           </p>
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="md:hidden text-sm text-blue-600 hover:text-blue-700 font-medium"
             >
-              {t(showFilters ? "Hide Filters" : "Show Filters")}
+              {showFilters ? gt("Hide Filters") : gt("Show Filters")}
             </button>
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value as SortOption)}
               className="text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-200"
             >
-              <option value="newest">{t("Newest First")}</option>
-              <option value="priceLow">{t("Price: Low to High")}</option>
-              <option value="priceHigh">{t("Price: High to Low")}</option>
-              <option value="mostViewed">{t("Most Viewed")}</option>
+              <option value="newest">{gt("Newest First")}</option>
+              <option value="priceLow">{gt("Price: Low to High")}</option>
+              <option value="priceHigh">{gt("Price: High to Low")}</option>
+              <option value="mostViewed">{gt("Most Viewed")}</option>
             </select>
           </div>
         </div>
@@ -162,13 +158,13 @@ export default function HomeClient() {
             <div className="space-y-6">
               {/* Category */}
               <div>
-                <h3 className="text-sm font-semibold text-neutral-900 mb-2">{t("Category")}</h3>
+                <h3 className="text-sm font-semibold text-neutral-900 mb-2">{gt("Category")}</h3>
                 <select
                   value={category}
                   onChange={(e) => { setCategory(e.target.value); setPage(1); }}
                   className="w-full text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-200"
                 >
-                  <option value="">{t("All Categories")}</option>
+                  <option value="">{gt("All Categories")}</option>
                   {categories.map((c) => (
                     <option key={c.slug} value={c.slug}>{c.name}</option>
                   ))}
@@ -177,7 +173,7 @@ export default function HomeClient() {
 
               {/* Price Range */}
               <div>
-                <h3 className="text-sm font-semibold text-neutral-900 mb-2">{t("Price Range")}</h3>
+                <h3 className="text-sm font-semibold text-neutral-900 mb-2">{gt("Price Range")}</h3>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <input
@@ -186,7 +182,7 @@ export default function HomeClient() {
                       value={priceMin}
                       onChange={(e) => { setPriceMin(Number(e.target.value)); setPage(1); }}
                       className="w-full text-sm border border-neutral-200 rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                      placeholder={t("Min")}
+                      placeholder={gt("Min")}
                     />
                     <span className="text-neutral-400">-</span>
                     <input
@@ -195,7 +191,7 @@ export default function HomeClient() {
                       value={priceMax}
                       onChange={(e) => { setPriceMax(Number(e.target.value)); setPage(1); }}
                       className="w-full text-sm border border-neutral-200 rounded px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-200"
-                      placeholder={t("Max")}
+                      placeholder={gt("Max")}
                     />
                   </div>
                   <input
@@ -212,7 +208,7 @@ export default function HomeClient() {
 
               {/* Condition */}
               <div>
-                <h3 className="text-sm font-semibold text-neutral-900 mb-2">{t("Condition")}</h3>
+                <h3 className="text-sm font-semibold text-neutral-900 mb-2">{gt("Condition")}</h3>
                 <div className="space-y-1.5">
                   {CONDITIONS.map((c) => (
                     <label key={c} className="flex items-center gap-2 text-sm text-neutral-700 cursor-pointer">
@@ -222,7 +218,9 @@ export default function HomeClient() {
                         onChange={() => toggleCondition(c)}
                         className="rounded border-neutral-300 text-blue-600 focus:ring-blue-200"
                       />
-                      {t(CONDITION_LABELS[c])}
+                      <T>
+                        <Branch branch={c} new="New" likeNew="Like New" good="Good" fair="Fair" />
+                      </T>
                     </label>
                   ))}
                 </div>
@@ -255,7 +253,7 @@ export default function HomeClient() {
                       disabled={page === 1}
                       className="px-3 py-1.5 text-sm border border-neutral-200 rounded-lg disabled:opacity-40 hover:bg-neutral-50 transition-colors"
                     >
-                      {t("Previous")}
+                      {gt("Previous")}
                     </button>
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
                       <button
@@ -275,7 +273,7 @@ export default function HomeClient() {
                       disabled={page === totalPages}
                       className="px-3 py-1.5 text-sm border border-neutral-200 rounded-lg disabled:opacity-40 hover:bg-neutral-50 transition-colors"
                     >
-                      {t("Next")}
+                      {gt("Next")}
                     </button>
                   </div>
                 )}

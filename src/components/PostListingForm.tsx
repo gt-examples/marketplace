@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { T, Currency, Branch } from "gt-next";
+import { T, Currency, Branch, Var, Num } from "gt-next";
 import { useGT } from "gt-next/client";
 import { categories } from "@/data/categories";
 import { ConditionBadge } from "@/components/ListingCard";
 import { Condition } from "@/data/listings";
 
-const STEPS = ["Photos", "Details", "Pricing", "Review"];
 const CONDITIONS: { value: Condition; label: string }[] = [
   { value: "new", label: "New" },
   { value: "likeNew", label: "Like New" },
@@ -16,7 +15,7 @@ const CONDITIONS: { value: Condition; label: string }[] = [
 ];
 
 export default function PostListingForm() {
-  const t = useGT();
+  const gt = useGT();
   const [step, setStep] = useState(0);
   const [photos, setPhotos] = useState<string[]>([]);
   const [dragOver, setDragOver] = useState(false);
@@ -33,10 +32,10 @@ export default function PostListingForm() {
   const selectedCat = categories.find((c) => c.slug === category);
 
   const errors: Record<number, string[]> = {
-    0: photos.length === 0 ? [t("Add at least one photo")] : [],
+    0: photos.length === 0 ? [gt("Add at least one photo")] : [],
     1: [
-      ...(!title.trim() ? [t("Title is required")] : []),
-      ...(!category ? [t("Select a category")] : []),
+      ...(!title.trim() ? [gt("Title is required")] : []),
+      ...(!category ? [gt("Select a category")] : []),
     ],
     2: [],
     3: [],
@@ -70,15 +69,17 @@ export default function PostListingForm() {
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-8">
-      <h1 className="text-2xl font-bold text-neutral-900 mb-6">{t("Post a Listing")}</h1>
+      <h1 className="text-2xl font-bold text-neutral-900 mb-6">{gt("Post a Listing")}</h1>
 
       {/* Progress bar */}
       <div className="flex items-center gap-2 mb-8">
-        {STEPS.map((s, i) => (
+        {[0, 1, 2, 3].map((i) => (
           <div key={i} className="flex-1">
             <div className={`h-1.5 rounded-full transition-colors ${i <= step ? "bg-blue-600" : "bg-neutral-200"}`} />
             <p className={`text-xs mt-1 ${i <= step ? "text-blue-600 font-medium" : "text-neutral-400"}`}>
-              {t(s)}
+              <T>
+                <Branch branch={["photos","details","pricing","review"][i]} photos="Photos" details="Details" pricing="Pricing" review="Review" />
+              </T>
             </p>
           </div>
         ))}
@@ -87,7 +88,7 @@ export default function PostListingForm() {
       {/* Step 0: Photos */}
       {step === 0 && (
         <div>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{t("Add Photos")}</h2>
+          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{gt("Add Photos")}</h2>
           <div
             className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer ${
               dragOver ? "border-blue-400 bg-blue-50" : "border-neutral-300 hover:border-neutral-400"
@@ -128,49 +129,49 @@ export default function PostListingForm() {
       {/* Step 1: Details */}
       {step === 1 && (
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{t("Listing Details")}</h2>
+          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{gt("Listing Details")}</h2>
           <div>
-            <label className="block text-sm font-medium text-neutral-700 mb-1">{t("Title")}</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">{gt("Title")}</label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder={t("What are you selling?")}
+              placeholder={gt("What are you selling?")}
               className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-neutral-700 mb-1">{t("Description")}</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">{gt("Description")}</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder={t("Describe your item in detail...")}
+              placeholder={gt("Describe your item in detail...")}
               className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none h-32"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-1">{t("Category")}</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">{gt("Category")}</label>
               <select
                 value={category}
                 onChange={(e) => { setCategory(e.target.value); setSubcategory(""); }}
                 className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
               >
-                <option value="">{t("Select category")}</option>
+                <option value="">{gt("Select category")}</option>
                 {categories.map((c) => (
                   <option key={c.slug} value={c.slug}>{c.name}</option>
                 ))}
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-neutral-700 mb-1">{t("Subcategory")}</label>
+              <label className="block text-sm font-medium text-neutral-700 mb-1">{gt("Subcategory")}</label>
               <select
                 value={subcategory}
                 onChange={(e) => setSubcategory(e.target.value)}
                 disabled={!selectedCat}
                 className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 disabled:opacity-50"
               >
-                <option value="">{t("Select subcategory")}</option>
+                <option value="">{gt("Select subcategory")}</option>
                 {selectedCat?.subcategories.map((sc) => (
                   <option key={sc.slug} value={sc.slug}>{sc.name}</option>
                 ))}
@@ -183,9 +184,9 @@ export default function PostListingForm() {
       {/* Step 2: Condition & Price */}
       {step === 2 && (
         <div className="space-y-6">
-          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{t("Condition & Price")}</h2>
+          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{gt("Condition & Price")}</h2>
           <div>
-            <label className="block text-sm font-medium text-neutral-700 mb-2">{t("Condition")}</label>
+            <label className="block text-sm font-medium text-neutral-700 mb-2">{gt("Condition")}</label>
             <div className="grid grid-cols-2 gap-2">
               {CONDITIONS.map((c) => (
                 <button
@@ -197,7 +198,9 @@ export default function PostListingForm() {
                       : "border-neutral-200 hover:border-neutral-300 text-neutral-700"
                   }`}
                 >
-                  {t(c.label)}
+                  <T>
+                    <Branch branch={c.value} new="New" likeNew="Like New" good="Good" fair="Fair" />
+                  </T>
                 </button>
               ))}
             </div>
@@ -211,12 +214,12 @@ export default function PostListingForm() {
                   onChange={(e) => { setIsFree(e.target.checked); if (e.target.checked) setPrice(""); }}
                   className="rounded border-neutral-300 text-blue-600 focus:ring-blue-200"
                 />
-                {t("This item is free")}
+                {gt("This item is free")}
               </label>
             </div>
             {!isFree && (
               <div>
-                <label className="block text-sm font-medium text-neutral-700 mb-1">{t("Price (USD)")}</label>
+                <label className="block text-sm font-medium text-neutral-700 mb-1">{gt("Price (USD)")}</label>
                 <input
                   type="number"
                   min={0}
@@ -232,7 +235,7 @@ export default function PostListingForm() {
                     onChange={(e) => setNegotiable(e.target.checked)}
                     className="rounded border-neutral-300 text-blue-600 focus:ring-blue-200"
                   />
-                  {t("Price is negotiable")}
+                  {gt("Price is negotiable")}
                 </label>
               </div>
             )}
@@ -243,7 +246,7 @@ export default function PostListingForm() {
       {/* Step 3: Review */}
       {step === 3 && (
         <div>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{t("Review Your Listing")}</h2>
+          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{gt("Review Your Listing")}</h2>
           <div className="border border-neutral-200 rounded-lg overflow-hidden">
             <div className="aspect-[16/9] bg-neutral-100 flex items-center justify-center">
               <svg className="w-12 h-12 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
@@ -251,7 +254,7 @@ export default function PostListingForm() {
               </svg>
             </div>
             <div className="p-4">
-              <h3 className="text-lg font-semibold text-neutral-900">{title || t("Untitled")}</h3>
+              <h3 className="text-lg font-semibold text-neutral-900">{title || gt("Untitled")}</h3>
               <div className="flex items-center gap-2 mt-2">
                 {isFree ? (
                   <span className="text-xl font-bold text-emerald-600"><T>Free</T></span>
@@ -270,9 +273,9 @@ export default function PostListingForm() {
               )}
               <T>
                 <p className="text-xs text-neutral-400 mt-2">
-                  {selectedCat?.name || "No category"}{subcategory && ` > ${selectedCat?.subcategories.find((s) => s.slug === subcategory)?.name || subcategory}`}
+                  <Var>{selectedCat?.name || "No category"}</Var>
                 </p>
-                <p className="text-xs text-neutral-400">{photos.length} photo(s)</p>
+                <p className="text-xs text-neutral-400"><Num>{photos.length}</Num> photo(s)</p>
               </T>
             </div>
           </div>
@@ -286,21 +289,21 @@ export default function PostListingForm() {
           disabled={step === 0}
           className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 transition-colors disabled:opacity-40"
         >
-          {t("Back")}
+          {gt("Back")}
         </button>
         {step < 3 ? (
           <button
             onClick={() => setStep((s) => s + 1)}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
           >
-            {t("Next")}
+            {gt("Next")}
           </button>
         ) : (
           <button
             onClick={() => setSubmitted(true)}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
           >
-            {t("Post Listing")}
+            {gt("Post Listing")}
           </button>
         )}
       </div>

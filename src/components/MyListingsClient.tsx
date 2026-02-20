@@ -16,7 +16,7 @@ const myListings = listings.slice(0, 6).map((l, i) => ({
 }));
 
 export default function MyListingsClient() {
-  const t = useGT();
+  const gt = useGT();
   const [tab, setTab] = useState<Tab>("active");
   const [items, setItems] = useState(myListings);
 
@@ -38,7 +38,7 @@ export default function MyListingsClient() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
-      <h1 className="text-2xl font-bold text-neutral-900 mb-6">{t("My Listings")}</h1>
+      <h1 className="text-2xl font-bold text-neutral-900 mb-6">{gt("My Listings")}</h1>
 
       {/* Tabs */}
       <div className="flex gap-1 border-b border-neutral-200 mb-6">
@@ -52,7 +52,9 @@ export default function MyListingsClient() {
                 : "border-transparent text-neutral-500 hover:text-neutral-700"
             }`}
           >
-            {t(tb.label)}
+            <T>
+              <Branch branch={tb.key} active="Active" sold="Sold" all="All" />
+            </T>
           </button>
         ))}
       </div>
@@ -75,7 +77,7 @@ export default function MyListingsClient() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <Link href={`/listing/${listing.id}`} className="text-sm font-semibold text-neutral-900 truncate hover:text-blue-600 transition-colors">
-                    <T>{listing.title}</T>
+                    {listing.title}
                   </Link>
                   <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${
                     listing.status === "active" ? "bg-emerald-100 text-emerald-700" : "bg-neutral-100 text-neutral-500"
@@ -103,14 +105,14 @@ export default function MyListingsClient() {
                     onClick={() => markSold(listing.id)}
                     className="text-xs px-3 py-1.5 border border-neutral-200 rounded-lg text-neutral-600 hover:bg-neutral-50 transition-colors"
                   >
-                    {t("Mark Sold")}
+                    {gt("Mark Sold")}
                   </button>
                 )}
                 <button
                   onClick={() => deleteListing(listing.id)}
                   className="text-xs px-3 py-1.5 border border-red-200 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
                 >
-                  {t("Delete")}
+                  {gt("Delete")}
                 </button>
               </div>
             </div>

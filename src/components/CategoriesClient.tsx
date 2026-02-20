@@ -1,34 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { T, Num, Plural } from "gt-next";
+import { T, Num, Plural, Var } from "gt-next";
 import { useGT } from "gt-next/client";
 import Link from "next/link";
 import { categories, Category } from "@/data/categories";
 
 export default function CategoriesClient() {
-  const t = useGT();
+  const gt = useGT();
   const [selected, setSelected] = useState<Category | null>(null);
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
       {/* Breadcrumbs */}
       <nav className="text-sm text-neutral-400 mb-6 flex items-center gap-2">
-        <Link href="/" className="hover:text-neutral-600 transition-colors">{t("Home")}</Link>
+        <Link href="/" className="hover:text-neutral-600 transition-colors">{gt("Home")}</Link>
         <span>/</span>
         {selected ? (
           <>
-            <button onClick={() => setSelected(null)} className="hover:text-neutral-600 transition-colors">{t("Categories")}</button>
+            <button onClick={() => setSelected(null)} className="hover:text-neutral-600 transition-colors">{gt("Categories")}</button>
             <span>/</span>
-            <span className="text-neutral-600"><T>{selected.name}</T></span>
+            <span className="text-neutral-600">{selected.name}</span>
           </>
         ) : (
-          <span className="text-neutral-600">{t("Categories")}</span>
+          <span className="text-neutral-600">{gt("Categories")}</span>
         )}
       </nav>
 
       <h1 className="text-2xl font-bold text-neutral-900 mb-8">
-        {selected ? <T>{selected.name}</T> : t("Browse by Category")}
+        {selected ? selected.name : gt("Browse by Category")}
       </h1>
 
       {!selected ? (
@@ -46,12 +46,14 @@ export default function CategoriesClient() {
                     <path strokeLinecap="round" strokeLinejoin="round" d={cat.icon} />
                   </svg>
                 </div>
-                <h3 className="text-sm font-semibold text-neutral-900 mb-1"><T>{cat.name}</T></h3>
+                <h3 className="text-sm font-semibold text-neutral-900 mb-1">{cat.name}</h3>
                 <p className="text-xs text-neutral-400">
-                  <Plural n={total}
-                    singular={<T><Num>{total}</Num> listing</T>}
-                    plural={<T><Num>{total}</Num> listings</T>}
-                  />
+                  <T>
+                    <Plural n={total}
+                      singular={<><Num>{total}</Num> listing</>}
+                      plural={<><Num>{total}</Num> listings</>}
+                    />
+                  </T>
                 </p>
               </button>
             );
@@ -64,7 +66,7 @@ export default function CategoriesClient() {
             className="text-sm text-blue-600 hover:text-blue-700 mb-4 flex items-center gap-1"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-            {t("All Categories")}
+            {gt("All Categories")}
           </button>
           <div className="space-y-2">
             {selected.subcategories.map((sub) => (
@@ -73,12 +75,14 @@ export default function CategoriesClient() {
                 href="/"
                 className="flex items-center justify-between p-4 border border-neutral-200 rounded-lg hover:shadow-sm hover:border-blue-200 transition-all"
               >
-                <span className="text-sm font-medium text-neutral-900"><T>{sub.name}</T></span>
+                <span className="text-sm font-medium text-neutral-900">{sub.name}</span>
                 <span className="text-sm text-neutral-400">
-                  <Plural n={sub.count}
-                    singular={<T><Num>{sub.count}</Num> listing</T>}
-                    plural={<T><Num>{sub.count}</Num> listings</T>}
-                  />
+                  <T>
+                    <Plural n={sub.count}
+                      singular={<><Num>{sub.count}</Num> listing</>}
+                      plural={<><Num>{sub.count}</Num> listings</>}
+                    />
+                  </T>
                 </span>
               </Link>
             ))}

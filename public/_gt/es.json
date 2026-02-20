@@ -1,17 +1,7 @@
 {
   "00ad8aeed0a6c461": "Cancelar",
-  "0219fb65956f25ce": "¿Qué estás vendiendo?",
-  "0a0dc2ed6ec0b1d4": "Detalles del anuncio",
-  "0ed24424158bf145": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
-    },
-    " resultado"
-  ],
-  "10457320f9781e3b": "Mis publicaciones",
-  "136e3d48788bdbd1": "Un mercado entre particulares que muestra la internacionalización con General Translation. Explora anuncios, publica productos y contacta a vendedores.",
+  "10457320f9781e3b": "Mis anuncios",
+  "136e3d48788bdbd1": "Un mercado entre pares que demuestra las capacidades de internacionalización de General Translation. Explora anuncios, publica productos y conéctate con vendedores.",
   "14dd1c1c439ba04d": [
     {
       "c": "Esta es una aplicación de ejemplo creada con General Translation para demostrar la internacionalización. No es un mercado ni un servicio real.",
@@ -60,14 +50,11 @@
       "t": "div"
     }
   ],
-  "1605a3b65a461154": "Seleccionar subcategoría",
-  "17e501694d9ac074": "Puntuación",
-  "1daed81aed823529": "Selecciona una categoría",
-  "217c1e23ed1ab892": "Condición y precio",
+  "17e501694d9ac074": "Valoración",
   "23584307c2d62976": "Rango de precios",
-  "2c1d1b1a9847c6b4": "Precio: mayor a menor",
+  "2c1d1b1a9847c6b4": "Precio: de mayor a menor",
   "2ecf88ef9e8e4259": "Inicio",
-  "2f39da125f98bb6c": "Máx.",
+  "2f39da125f98bb6c": "Máx",
   "3318987ced27b5a4": "Gratis",
   "348018e5ec3002c1": "Publicar",
   "394be877f65f99a8": {
@@ -87,7 +74,7 @@
       "c": {
         "d": {
           "b": {
-            "withinDay": "< 24h",
+            "withinDay": "< 24hr",
             "withinHour": "< 1hr"
           },
           "t": "b"
@@ -104,64 +91,54 @@
       "t": "p"
     }
   ],
-  "45ab47c86055c200": "Añade al menos una foto",
-  "4accfdd043ab901e": [
-    {
-      "c": {
-        "i": 2,
-        "t": "path"
-      },
-      "i": 1,
-      "t": "svg"
-    },
-    {
-      "c": "Arrastra y suelta fotos aquí",
-      "i": 3,
-      "t": "p"
-    },
-    {
-      "c": "o haz clic para explorar (hasta 8 fotos)",
-      "i": 4,
-      "t": "p"
-    }
-  ],
-  "5e7a1040d427b2a6": "Este artículo es gratis",
-  "62c152067ed2c7db": [
-    {
-      "c": {
-        "c": {
-          "i": 3,
-          "t": "path"
-        },
-        "i": 2,
-        "t": "svg"
-      },
-      "i": 1,
-      "t": "div"
-    },
-    {
-      "c": "Anuncio publicado",
-      "i": 4,
-      "t": "h2"
-    },
-    {
-      "c": "Tu anuncio ya está activo y visible para los compradores de tu área.",
-      "i": 5,
-      "t": "p"
-    }
-  ],
-  "659a662bb73db8a0": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
-    },
-    " listado"
-  ],
+  "4d68c060e1ebebb3": "Mostrar filtros",
   "686611acf00d7d17": "Fecha de guardado",
+  "6c5c64c3ca905c8c": {
+    "d": {
+      "b": {
+        "many": {
+          "c": {
+            "c": "Listados",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
+        },
+        "other": {
+          "c": {
+            "c": "Listados",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
+        },
+        "plural": {
+          "c": {
+            "c": "Listados",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
+        },
+        "singular": {
+          "c": {
+            "c": "Listado",
+            "i": 3,
+            "t": "p"
+          },
+          "i": 2,
+          "t": "C2"
+        }
+      },
+      "t": "p"
+    },
+    "i": 1,
+    "t": "Plural"
+  },
   "6cc3a43639370dff": "Explorar",
-  "6e38d6ea39dbfb08": "Listados",
-  "6eadfe6160c42719": "Subcategoría",
   "6f7428ac068ff7ad": "Condición",
   "703c7cb3584bd86a": "Categorías",
   "71bacf23e4e392c4": {
@@ -169,22 +146,177 @@
     "i": 1,
     "t": "h3"
   },
-  "7482b296e4f76e30": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
+  "73970026e141e6aa": {
+    "d": {
+      "b": {
+        "many": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " listados"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "other": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " listados"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "plural": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " listados"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "singular": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " listado"
+          ],
+          "i": 2,
+          "t": "C2"
+        }
+      },
+      "t": "p"
     },
-    " resultados"
-  ],
+    "i": 1,
+    "t": "Plural"
+  },
   "762fcce45b65eea9": "Guardar",
-  "78079593acbe3f28": "Mensaje para el vendedor",
+  "78079593acbe3f28": "Enviar mensaje al vendedor",
+  "784adb54822ecba5": {
+    "d": {
+      "b": {
+        "active": "Activo",
+        "all": "Todos",
+        "sold": "Vendido"
+      },
+      "t": "b"
+    },
+    "i": 1,
+    "t": "Branch"
+  },
+  "79a70b8254006e2f": [
+    {
+      "c": [
+        {
+          "c": {
+            "i": 3,
+            "k": "_gt_value_3",
+            "v": "v"
+          },
+          "i": 2,
+          "t": "span"
+        },
+        {
+          "c": {
+            "i": 5,
+            "k": "_gt_date_5",
+            "v": "d"
+          },
+          "i": 4,
+          "t": "span"
+        }
+      ],
+      "i": 1,
+      "t": "div"
+    },
+    {
+      "c": [
+        {
+          "i": 7,
+          "k": "_gt_n_7",
+          "v": "n"
+        },
+        " vistas"
+      ],
+      "i": 6,
+      "t": "div"
+    }
+  ],
   "7f8cb8174c6d288f": "Siguiente",
+  "82036d32c1c02953": {
+    "d": {
+      "b": {
+        "many": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " resultados"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "other": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " resultados"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "plural": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " resultados"
+          ],
+          "i": 2,
+          "t": "C2"
+        },
+        "singular": {
+          "c": [
+            {
+              "i": 3,
+              "k": "_gt_n_3",
+              "v": "n"
+            },
+            " resultado"
+          ],
+          "i": 2,
+          "t": "C2"
+        }
+      },
+      "t": "p"
+    },
+    "i": 1,
+    "t": "Plural"
+  },
   "9037a9b57b84318e": "Explorar por categoría",
   "92b59072830cd6b6": "Todas las categorías",
-  "944d566de854b8c9": "Publicaciones similares",
-  "954dcb9f2d1dee8c": "Publicar anuncio",
-  "95f94ccf634012a0": "Mín.",
+  "944d566de854b8c9": "Anuncios similares",
+  "95f94ccf634012a0": "Mín",
   "9b0e07b66c149219": {
     "d": {
       "b": {
@@ -222,7 +354,6 @@
     "i": 1,
     "t": "p"
   },
-  "a169441aa8fa72ac": "Revisa tu anuncio",
   "a45e6b229e290813": [
     {
       "c": "No se encontraron resultados",
@@ -230,18 +361,10 @@
       "t": "p"
     },
     {
-      "c": "Intenta ajustar los filtros o términos de búsqueda",
+      "c": "Intenta ajustar los filtros o los términos de búsqueda",
       "i": 2,
       "t": "p"
     }
-  ],
-  "a6b12d98391fbfc8": [
-    {
-      "i": 1,
-      "k": "_gt_n_1",
-      "v": "n"
-    },
-    " listados"
   ],
   "ab47f58386924b4f": "Anterior",
   "acea78e592d3fc6f": {
@@ -249,22 +372,56 @@
     "i": 1,
     "t": "p"
   },
-  "b02c4aa716524e41": "Precio: menor a mayor",
-  "b15e3993e3725072": "Hola, ¿sigue disponible?",
-  "b6c98291dc1dabf7": "El título es obligatorio",
+  "b02c4aa716524e41": "Precio: de menor a mayor",
+  "b15e3993e3725072": "Hola, ¿todavía está disponible?",
   "bb081b4501ebd5a7": "Enviar",
   "bcc4a77f9b07b352": "Anuncios guardados",
-  "bcc9785b2dee50a0": "Marketplace | Traducción general",
-  "bfd168c90558f93e": "Listado",
+  "bcc9785b2dee50a0": "Marketplace | General Translation",
+  "c09f43cb60484df5": {
+    "c": [
+      {
+        "c": {
+          "i": 3,
+          "k": "_gt_value_3",
+          "v": "v"
+        },
+        "i": 2,
+        "t": "p"
+      },
+      {
+        "c": [
+          "Publicado ",
+          {
+            "i": 5,
+            "k": "_gt_date_5",
+            "v": "d"
+          }
+        ],
+        "i": 4,
+        "t": "p"
+      },
+      {
+        "c": [
+          {
+            "i": 7,
+            "k": "_gt_n_7",
+            "v": "n"
+          },
+          " vistas"
+        ],
+        "i": 6,
+        "t": "p"
+      }
+    ],
+    "i": 1,
+    "t": "div"
+  },
   "c0d3dd0975eb2f22": "Descripción",
   "c3251b05060bea63": "Más recientes primero",
   "c3e693ca4b2c5b30": "Marcar como vendido",
-  "c3ea24ac809a5ed5": "Título",
   "c6fa2905d56a750c": "Guardados",
   "c7aa0e169164a191": "Mercado",
-  "c84da0ed9b0cae55": "Seleccionar categoría",
   "ca10635fd5effe23": "Negociable",
-  "caaa6947c0e60ec5": "Agregar fotos",
   "cb4c21ec9c5889a9": {
     "c": [
       {
@@ -286,10 +443,7 @@
     "i": 1,
     "t": "div"
   },
-  "d2f7cfe046cec410": "Precio (USD)",
-  "d303be54a588b078": "El precio es negociable",
   "d4ec75de5686061a": "Más vistos",
-  "d894f6cb29f7a3ea": "Atrás",
   "da49b8271b9dffa0": "Eliminar",
   "e44870bff2865e77": "Categoría",
   "e48339936a4dd482": [
@@ -312,7 +466,24 @@
       "t": "p"
     }
   ],
-  "f344446f3e550d2c": "Sin título",
-  "fdc1e0ccadda9657": "Publicar anuncio",
-  "fe207db80d78a055": "Describe tu artículo con detalle..."
+  "e4b60ad4b18cf236": "Ocultar filtros",
+  "f6a348a5b59e9d92": [
+    {
+      "c": "Enviar mensaje al vendedor",
+      "i": 1,
+      "t": "h3"
+    },
+    {
+      "c": [
+        "Envía un mensaje a ",
+        {
+          "i": 3,
+          "k": "_gt_value_3",
+          "v": "v"
+        }
+      ],
+      "i": 2,
+      "t": "p"
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { T, Currency, DateTime, Branch, Num, Plural } from "gt-next";
+import { T, Currency, DateTime, Branch, Num, Plural, Var } from "gt-next";
 import { useGT } from "gt-next/client";
 import Link from "next/link";
 import { Listing, getSimilarListings } from "@/data/listings";
@@ -11,7 +11,7 @@ import { ConditionBadge } from "@/components/ListingCard";
 import ListingCard from "@/components/ListingCard";
 
 export default function ListingDetail({ listing, seller }: { listing: Listing; seller: Seller }) {
-  const t = useGT();
+  const gt = useGT();
   const { isFavorite, toggleFavorite } = useFavorites();
   const fav = isFavorite(listing.id);
   const [showMessage, setShowMessage] = useState(false);
@@ -28,11 +28,11 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
     <div className="max-w-6xl mx-auto px-6 py-8">
       {/* Breadcrumbs */}
       <nav className="text-sm text-neutral-400 mb-6 flex items-center gap-2">
-        <Link href="/" className="hover:text-neutral-600 transition-colors">{t("Home")}</Link>
+        <Link href="/" className="hover:text-neutral-600 transition-colors">{gt("Home")}</Link>
         <span>/</span>
-        <Link href="/categories" className="hover:text-neutral-600 transition-colors">{t("Categories")}</Link>
+        <Link href="/categories" className="hover:text-neutral-600 transition-colors">{gt("Categories")}</Link>
         <span>/</span>
-        <span className="text-neutral-600"><T>{listing.title}</T></span>
+        <span className="text-neutral-600">{listing.title}</span>
       </nav>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -76,15 +76,15 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
 
           {/* Description */}
           <div className="mt-8">
-            <h2 className="text-lg font-semibold text-neutral-900 mb-3">{t("Description")}</h2>
-            <p className="text-neutral-600 text-sm leading-relaxed"><T>{listing.description}</T></p>
+            <h2 className="text-lg font-semibold text-neutral-900 mb-3">{gt("Description")}</h2>
+            <p className="text-neutral-600 text-sm leading-relaxed">{listing.description}</p>
           </div>
         </div>
 
         {/* Right: Info */}
         <div className="lg:col-span-2 space-y-6">
           <div>
-            <h1 className="text-2xl font-bold text-neutral-900 mb-2"><T>{listing.title}</T></h1>
+            <h1 className="text-2xl font-bold text-neutral-900 mb-2">{listing.title}</h1>
             <div className="flex items-center gap-3 mb-3">
               {listing.isFree ? (
                 <span className="text-3xl font-bold text-emerald-600"><T>Free</T></span>
@@ -102,7 +102,7 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
             </div>
             <T>
               <div className="text-sm text-neutral-500 space-y-1">
-                <p>{listing.location}</p>
+                <p><Var>{listing.location}</Var></p>
                 <p>Listed <DateTime>{new Date(listing.postedAt)}</DateTime></p>
                 <p><Num>{listing.views}</Num> views</p>
               </div>
@@ -115,7 +115,7 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
               onClick={() => setShowMessage(true)}
               className="flex-1 bg-blue-600 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
             >
-              {t("Message Seller")}
+              {gt("Message Seller")}
             </button>
             <button
               onClick={() => toggleFavorite(listing.id)}
@@ -123,7 +123,7 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
                 fav ? "border-red-200 text-red-600 bg-red-50" : "border-neutral-200 text-neutral-600 hover:bg-neutral-50"
               }`}
             >
-              {fav ? t("Saved") : t("Save")}
+              {fav ? gt("Saved") : gt("Save")}
             </button>
           </div>
 
@@ -148,7 +148,7 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
             <div className="grid grid-cols-3 gap-3 text-center text-xs">
               <div className="bg-neutral-50 rounded p-2">
                 <p className="font-semibold text-neutral-900">{seller.rating}</p>
-                <p className="text-neutral-400">{t("Rating")}</p>
+                <p className="text-neutral-400">{gt("Rating")}</p>
               </div>
               <div className="bg-neutral-50 rounded p-2">
                 <T>
@@ -160,10 +160,12 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
               </div>
               <div className="bg-neutral-50 rounded p-2">
                 <p className="font-semibold text-neutral-900"><Num>{seller.listingCount}</Num></p>
-                <Plural n={seller.listingCount}
-                  singular={<p className="text-neutral-400"><T>Listing</T></p>}
-                  plural={<p className="text-neutral-400"><T>Listings</T></p>}
-                />
+                <T>
+                  <Plural n={seller.listingCount}
+                    singular={<><p className="text-neutral-400">Listing</p></>}
+                    plural={<><p className="text-neutral-400">Listings</p></>}
+                  />
+                </T>
               </div>
             </div>
           </div>
@@ -173,7 +175,7 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
       {/* Similar listings */}
       {similar.length > 0 && (
         <div className="mt-16">
-          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{t("Similar Listings")}</h2>
+          <h2 className="text-lg font-semibold text-neutral-900 mb-4">{gt("Similar Listings")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {similar.map((l) => (
               <ListingCard key={l.id} listing={l} />
@@ -203,12 +205,12 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
               <>
                 <T>
                   <h3 className="text-lg font-semibold text-neutral-900 mb-1">Message Seller</h3>
-                  <p className="text-sm text-neutral-500 mb-4">Send a message to {seller.name}</p>
+                  <p className="text-sm text-neutral-500 mb-4">Send a message to <Var>{seller.name}</Var></p>
                 </T>
                 <textarea
                   value={messageText}
                   onChange={(e) => setMessageText(e.target.value)}
-                  placeholder={t("Hi, is this still available?")}
+                  placeholder={gt("Hi, is this still available?")}
                   className="w-full border border-neutral-200 rounded-lg px-3 py-2 text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none h-28"
                 />
                 <div className="flex justify-end gap-3 mt-4">
@@ -216,14 +218,14 @@ export default function ListingDetail({ listing, seller }: { listing: Listing; s
                     onClick={() => setShowMessage(false)}
                     className="px-4 py-2 text-sm text-neutral-600 hover:text-neutral-900 transition-colors"
                   >
-                    {t("Cancel")}
+                    {gt("Cancel")}
                   </button>
                   <button
                     onClick={() => setMessageSent(true)}
                     disabled={!messageText.trim()}
                     className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors disabled:opacity-40"
                   >
-                    {t("Send")}
+                    {gt("Send")}
                   </button>
                 </div>
               </>

@@ -10,7 +10,7 @@ import ListingCard from "@/components/ListingCard";
 type SortOption = "dateSaved" | "priceLow" | "priceHigh";
 
 export default function SavedClient() {
-  const t = useGT();
+  const gt = useGT();
   const { favorites } = useFavorites();
   const [sort, setSort] = useState<SortOption>("dateSaved");
 
@@ -25,15 +25,15 @@ export default function SavedClient() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-neutral-900">{t("Saved Listings")}</h1>
+        <h1 className="text-2xl font-bold text-neutral-900">{gt("Saved Listings")}</h1>
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value as SortOption)}
           className="text-sm border border-neutral-200 rounded-lg px-3 py-2 text-neutral-700 focus:outline-none focus:ring-2 focus:ring-blue-200"
         >
-          <option value="dateSaved">{t("Date Saved")}</option>
-          <option value="priceLow">{t("Price: Low to High")}</option>
-          <option value="priceHigh">{t("Price: High to Low")}</option>
+          <option value="dateSaved">{gt("Date Saved")}</option>
+          <option value="priceLow">{gt("Price: Low to High")}</option>
+          <option value="priceHigh">{gt("Price: High to Low")}</option>
         </select>
       </div>
 

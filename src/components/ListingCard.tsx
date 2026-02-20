@@ -1,6 +1,6 @@
 "use client";
 
-import { T, Currency, DateTime, Branch, Num } from "gt-next";
+import { T, Currency, DateTime, Branch, Num, Var } from "gt-next";
 import Link from "next/link";
 import { Listing } from "@/data/listings";
 import { useFavorites } from "@/context/FavoritesContext";
@@ -40,7 +40,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         <div className="flex items-start justify-between gap-2 mb-2">
           <Link href={`/listing/${listing.id}`} className="min-w-0">
             <h3 className="text-sm font-semibold text-neutral-900 truncate group-hover:text-blue-600 transition-colors">
-              <T>{listing.title}</T>
+              {listing.title}
             </h3>
           </Link>
           <button
@@ -70,7 +70,7 @@ export default function ListingCard({ listing }: { listing: Listing }) {
         </div>
         <T>
           <div className="flex items-center gap-3 text-xs text-neutral-400">
-            <span>{listing.location}</span>
+            <span><Var>{listing.location}</Var></span>
             <span><DateTime>{new Date(listing.postedAt)}</DateTime></span>
           </div>
           <div className="text-xs text-neutral-400 mt-1">
